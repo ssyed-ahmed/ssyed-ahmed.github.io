@@ -321,6 +321,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_logs_logs_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/logs/logs.component */ "./src/app/logs/logs.component.ts");
 /* harmony import */ var src_app_page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/page-not-found/page-not-found.component */ "./src/app/page-not-found/page-not-found.component.ts");
 /* harmony import */ var src_app_statistics_statistics_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/statistics/statistics.component */ "./src/app/statistics/statistics.component.ts");
+/* harmony import */ var src_app_hero_detail_general_hero_detail_general_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/hero-detail-general/hero-detail-general.component */ "./src/app/hero-detail-general/hero-detail-general.component.ts");
+/* harmony import */ var src_app_hero_detail_stats_hero_detail_stats_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/hero-detail-stats/hero-detail-stats.component */ "./src/app/hero-detail-stats/hero-detail-stats.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -335,16 +337,24 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
 var routes = [
     { path: 'heroes', component: src_app_heroes_heroes_component__WEBPACK_IMPORTED_MODULE_2__["HeroesComponent"] },
     { path: 'dashboard', component: src_app_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_3__["DashboardComponent"] },
     // { path: 'heroes/:id/:fromState', component: HeroDetailComponent },
     {
-        path: 'heroes',
+        path: 'heroes/:id/:fromState',
+        component: src_app_hero_detail_hero_detail_component__WEBPACK_IMPORTED_MODULE_4__["HeroDetailComponent"],
         children: [
+            { path: '', redirectTo: 'overview', pathMatch: 'full' },
             {
-                path: ':id/:fromState',
-                component: src_app_hero_detail_hero_detail_component__WEBPACK_IMPORTED_MODULE_4__["HeroDetailComponent"]
+                path: 'overview',
+                component: src_app_hero_detail_general_hero_detail_general_component__WEBPACK_IMPORTED_MODULE_8__["HeroDetailGeneralComponent"]
+            },
+            {
+                path: 'statistics',
+                component: src_app_hero_detail_stats_hero_detail_stats_component__WEBPACK_IMPORTED_MODULE_9__["HeroDetailStatsComponent"]
             }
         ]
     },
@@ -390,7 +400,7 @@ module.exports = "h1 {\r\n    font-size: 1.2em;\r\n    color: #999;\r\n    margi
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-dark bg-dark\">\r\n    <a class=\"navbar-brand\" href=\"#\">\r\n      <img src=\"../assets/icon.png\" width=\"50\" height=\"50\" alt=\"\">\r\n      <div class=\"main-title\">\r\n          Superheroes\r\n        </div>\r\n    </a>\r\n</nav>\r\n\r\n<div class=\"container-fluid\">\r\n  <div class=\"row\">\r\n      <div class=\"col-sm-2 no-padding\">\r\n        <div class=\"section\">\r\n          <div class=\"section-header\">\r\n            <div class=\"row\">\r\n              <div class=\"col-sm-9 section-title\">\r\n                Menu\r\n              </div>\r\n              <!-- <div class=\"col-sm-3\">\r\n                <i class=\"fas fa-sync refresh-style\" (click)=\"restoreHeroes()\"></i>\r\n              </div> -->\r\n            </div>\r\n          </div>\r\n          <div class=\"section-body\">\r\n            <div class=\"nav flex-column nav-pills\" id=\"v-pills-tab\" role=\"tablist\" aria-orientation=\"vertical\">\r\n              <a class=\"nav-link\" id=\"v-pills-home-tab\" data-toggle=\"pill\" href=\"#v-pills-home\" role=\"tab\" aria-controls=\"v-pills-home\" aria-selected=\"true\" routerLink=\"/dashboard\" routerLinkActive=\"active\">\r\n                <div class=\"row\">\r\n                  <div class=\"col-sm-1\">\r\n                      <i class=\"fas fa-tachometer-alt\"></i>\r\n                  </div>\r\n                  <div class=\"col-sm-11\">\r\n                      Dashboard\r\n                  </div>\r\n                </div>                  \r\n              </a>\r\n              <a class=\"nav-link\" id=\"v-pills-profile-tab\" data-toggle=\"pill\" href=\"#v-pills-profile\" role=\"tab\" aria-controls=\"v-pills-profile\" aria-selected=\"false\" routerLink=\"/heroes\" routerLinkActive=\"active\">\r\n                <div class=\"row\">\r\n                  <div class=\"col-sm-1\">\r\n                      <i class=\"fas fa-user\"></i>\r\n                  </div>\r\n                  <div class=\"col-sm-11\">\r\n                      Heroes\r\n                  </div>\r\n                </div>\r\n              </a>\r\n              <a class=\"nav-link\" id=\"v-pills-settings-tab\" data-toggle=\"pill\" href=\"#v-pills-settings\" role=\"tab\" aria-controls=\"v-pills-settings\" aria-selected=\"false\" routerLink=\"/logs\" routerLinkActive=\"active\">\r\n                <div class=\"row\">\r\n                  <div class=\"col-sm-1\">\r\n                      <i class=\"fas fa-book\"></i>\r\n                  </div>\r\n                  <div class=\"col-sm-11\">\r\n                      Logs\r\n                  </div>\r\n                </div>\r\n              </a>\r\n              <!-- <a class=\"nav-link\" id=\"v-pills-settings-tab\" data-toggle=\"pill\" href=\"#v-pills-settings\" role=\"tab\" aria-controls=\"v-pills-settings\" aria-selected=\"false\" routerLink=\"/statistics\" routerLinkActive=\"active\">Statistics</a> -->\r\n            </div>\r\n          </div>\r\n        </div>        \r\n      </div>\r\n      <div class=\"col-sm-10 no-right-padding\">        \r\n        <router-outlet></router-outlet>        \r\n      </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<nav class=\"navbar navbar-dark bg-dark\">\r\n    <a class=\"navbar-brand\" href=\"#\">\r\n      <img src=\"../assets/icon.png\" width=\"50\" height=\"50\" alt=\"\">\r\n      <div class=\"main-title\">\r\n          Super heroes\r\n        </div>\r\n    </a>\r\n</nav>\r\n\r\n<div class=\"container-fluid\">\r\n  <div class=\"row\">\r\n      <div class=\"col-sm-2 no-padding\">\r\n        <div class=\"section\">\r\n          <div class=\"section-header\">\r\n            <div class=\"row\">\r\n              <div class=\"col-sm-9 section-title\">\r\n                Menu\r\n              </div>\r\n              <!-- <div class=\"col-sm-3\">\r\n                <i class=\"fas fa-sync refresh-style\" (click)=\"restoreHeroes()\"></i>\r\n              </div> -->\r\n            </div>\r\n          </div>\r\n          <div class=\"section-body\">\r\n            <div class=\"nav flex-column nav-pills\" id=\"v-pills-tab\" role=\"tablist\" aria-orientation=\"vertical\">\r\n              <a class=\"nav-link\" id=\"v-pills-home-tab\" data-toggle=\"pill\" href=\"#v-pills-home\" role=\"tab\" aria-controls=\"v-pills-home\" aria-selected=\"true\" routerLink=\"/dashboard\" routerLinkActive=\"active\">\r\n                <div class=\"row\">\r\n                  <div class=\"col-sm-1\">\r\n                      <i class=\"fas fa-tachometer-alt\"></i>\r\n                  </div>\r\n                  <div class=\"col-sm-11\">\r\n                      Dashboard\r\n                  </div>\r\n                </div>                  \r\n              </a>\r\n              <a class=\"nav-link\" id=\"v-pills-profile-tab\" data-toggle=\"pill\" href=\"#v-pills-profile\" role=\"tab\" aria-controls=\"v-pills-profile\" aria-selected=\"false\" routerLink=\"/heroes\" routerLinkActive=\"active\">\r\n                <div class=\"row\">\r\n                  <div class=\"col-sm-1\">\r\n                      <i class=\"fas fa-user\"></i>\r\n                  </div>\r\n                  <div class=\"col-sm-11\">\r\n                      Heroes\r\n                  </div>\r\n                </div>\r\n              </a>\r\n              <a class=\"nav-link\" id=\"v-pills-settings-tab\" data-toggle=\"pill\" href=\"#v-pills-settings\" role=\"tab\" aria-controls=\"v-pills-settings\" aria-selected=\"false\" routerLink=\"/logs\" routerLinkActive=\"active\">\r\n                <div class=\"row\">\r\n                  <div class=\"col-sm-1\">\r\n                      <i class=\"fas fa-book\"></i>\r\n                  </div>\r\n                  <div class=\"col-sm-11\">\r\n                      Logs\r\n                  </div>\r\n                </div>\r\n              </a>\r\n              <!-- <a class=\"nav-link\" id=\"v-pills-settings-tab\" data-toggle=\"pill\" href=\"#v-pills-settings\" role=\"tab\" aria-controls=\"v-pills-settings\" aria-selected=\"false\" routerLink=\"/statistics\" routerLinkActive=\"active\">Statistics</a> -->\r\n            </div>\r\n          </div>\r\n        </div>        \r\n      </div>\r\n      <div class=\"col-sm-10 no-right-padding\">        \r\n        <router-outlet></router-outlet>        \r\n      </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -463,20 +473,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./heroes/heroes.component */ "./src/app/heroes/heroes.component.ts");
 /* harmony import */ var _hero_detail_hero_detail_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./hero-detail/hero-detail.component */ "./src/app/hero-detail/hero-detail.component.ts");
-/* harmony import */ var _messages_messages_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./messages/messages.component */ "./src/app/messages/messages.component.ts");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! .//app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
-/* harmony import */ var _logs_logs_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./logs/logs.component */ "./src/app/logs/logs.component.ts");
-/* harmony import */ var _section_section_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./section/section.component */ "./src/app/section/section.component.ts");
-/* harmony import */ var _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./page-not-found/page-not-found.component */ "./src/app/page-not-found/page-not-found.component.ts");
-/* harmony import */ var _hero_search_hero_search_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./hero-search/hero-search.component */ "./src/app/hero-search/hero-search.component.ts");
-/* harmony import */ var _statistics_statistics_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./statistics/statistics.component */ "./src/app/statistics/statistics.component.ts");
+/* harmony import */ var _hero_detail_general_hero_detail_general_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./hero-detail-general/hero-detail-general.component */ "./src/app/hero-detail-general/hero-detail-general.component.ts");
+/* harmony import */ var _hero_detail_stats_hero_detail_stats_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./hero-detail-stats/hero-detail-stats.component */ "./src/app/hero-detail-stats/hero-detail-stats.component.ts");
+/* harmony import */ var _messages_messages_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./messages/messages.component */ "./src/app/messages/messages.component.ts");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! .//app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
+/* harmony import */ var _logs_logs_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./logs/logs.component */ "./src/app/logs/logs.component.ts");
+/* harmony import */ var _section_section_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./section/section.component */ "./src/app/section/section.component.ts");
+/* harmony import */ var _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./page-not-found/page-not-found.component */ "./src/app/page-not-found/page-not-found.component.ts");
+/* harmony import */ var _hero_search_hero_search_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./hero-search/hero-search.component */ "./src/app/hero-search/hero-search.component.ts");
+/* harmony import */ var _statistics_statistics_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./statistics/statistics.component */ "./src/app/statistics/statistics.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -503,18 +517,20 @@ var AppModule = /** @class */ (function () {
                 _app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"],
                 _heroes_heroes_component__WEBPACK_IMPORTED_MODULE_7__["HeroesComponent"],
                 _hero_detail_hero_detail_component__WEBPACK_IMPORTED_MODULE_8__["HeroDetailComponent"],
-                _messages_messages_component__WEBPACK_IMPORTED_MODULE_9__["MessagesComponent"],
-                _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_11__["DashboardComponent"],
-                _logs_logs_component__WEBPACK_IMPORTED_MODULE_12__["LogsComponent"],
-                _section_section_component__WEBPACK_IMPORTED_MODULE_13__["SectionComponent"],
-                _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_14__["PageNotFoundComponent"],
-                _hero_search_hero_search_component__WEBPACK_IMPORTED_MODULE_15__["HeroSearchComponent"],
-                _statistics_statistics_component__WEBPACK_IMPORTED_MODULE_16__["StatisticsComponent"]
+                _hero_detail_general_hero_detail_general_component__WEBPACK_IMPORTED_MODULE_9__["HeroDetailGeneralComponent"],
+                _hero_detail_stats_hero_detail_stats_component__WEBPACK_IMPORTED_MODULE_10__["HeroDetailStatsComponent"],
+                _messages_messages_component__WEBPACK_IMPORTED_MODULE_11__["MessagesComponent"],
+                _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_13__["DashboardComponent"],
+                _logs_logs_component__WEBPACK_IMPORTED_MODULE_14__["LogsComponent"],
+                _section_section_component__WEBPACK_IMPORTED_MODULE_15__["SectionComponent"],
+                _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_16__["PageNotFoundComponent"],
+                _hero_search_hero_search_component__WEBPACK_IMPORTED_MODULE_17__["HeroSearchComponent"],
+                _statistics_statistics_component__WEBPACK_IMPORTED_MODULE_18__["StatisticsComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_10__["AppRoutingModule"],
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_12__["AppRoutingModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
                 angular_in_memory_web_api__WEBPACK_IMPORTED_MODULE_4__["HttpClientInMemoryWebApiModule"].forRoot(_in_memory_data_service__WEBPACK_IMPORTED_MODULE_5__["InMemoryDataService"], { dataEncapsulation: false })
             ],
@@ -601,7 +617,7 @@ var CommunicationService = /** @class */ (function () {
         this.subject = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
     }
     CommunicationService.prototype.sendMessage = function (message) {
-        this.subject.next({ text: message });
+        this.subject.next({ content: message });
     };
     CommunicationService.prototype.clearMessage = function () {
         this.subject.next();
@@ -735,6 +751,154 @@ var DashboardComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/hero-detail-general/hero-detail-general.component.css":
+/*!***********************************************************************!*\
+  !*** ./src/app/hero-detail-general/hero-detail-general.component.css ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".details-container {\r\n    padding-left: 25px;\r\n}\r\n.image-size {\r\n    display: block;\r\n    max-width: 330px;\r\n    max-height: 300px;\r\n    width: auto;\r\n    height: auto;\r\n    margin-top: 10px;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    margin-bottom: 10px;\r\n}\r\n.property-title {\r\n    font-weight: bold;\r\n    padding-top: 10px;\r\n    padding-left: 18px;\r\n    padding-bottom: 10px;\r\n}\r\n.property-value {\r\n    padding-top: 10px;\r\n    padding-bottom: 10px;\r\n}\r\n.btn-style {\r\n    color: #fff !important;\r\n}\r\n.rating-style {\r\n    color: gold;\r\n}\r\n.title-container {\r\n    width: 400px;\r\n    height: 55px;\r\n    background-color: #000;\r\n    border-radius: 25px;\r\n    text-align: center;\r\n    display: table;\r\n    color: cornflowerblue;\r\n    margin-bottom: 15px;\r\n}\r\n.title-style {\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/hero-detail-general/hero-detail-general.component.html":
+/*!************************************************************************!*\
+  !*** ./src/app/hero-detail-general/hero-detail-general.component.html ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\">\n  <div class=\"col-sm-12 details-container\">\n    <div *ngIf=\"hero\">\n      <div class=\"row\">\n        <div class=\"col-sm-12\">\n            <div class=\"jumbotron jumbotron-fluid\">\n              <div class=\"container\">\n                  <div class=\"row\">\n                      <div class=\"col-sm-9\">\n                          <div class=\"title-container\">\n                              <h2 class=\"title-style\">{{hero.name}}</h2>\n                          </div>                                \n                          <div class=\"row\">\n                            <div class=\"col-sm-3 property-title\">\n                              Id:\n                            </div>\n                            <div class=\"col-sm-9 property-value\">\n                              {{ hero.id }}\n                            </div>\n                          </div>\n                          <div class=\"row\">\n                            <div class=\"col-sm-3 property-title\">\n                              Name:\n                            </div>\n                            <div class=\"col-sm-9 property-value\">\n                              {{ hero.name }}\n                            </div>\n                          </div>                          \n                          <div class=\"row\">\n                            <div class=\"col-sm-3 property-title\">\n                              Description:\n                            </div>\n                            <div class=\"col-sm-9 property-value\">\n                              {{ hero.description }}\n                            </div>\n                          </div>\n                          <div class=\"row\">\n                            <div class=\"col-sm-3 property-title\">\n                              Sex:\n                            </div>\n                            <div class=\"col-sm-9 property-value\">\n                              {{ hero.sex }}\n                            </div>\n                          </div>                          \n                          <div class=\"row\">\n                            <div class=\"col-sm-3 property-title\">\n                              Rating:\n                            </div>\n                            <div class=\"col-sm-9 property-value\">\n                                <span *ngFor=\"let num of hero.rating\">\n                                  <i class=\"fas fa-star rating-style\"></i>\n                                </span>\n                            </div>\n                          </div> \n                      </div>\n                      <div class=\"col-sm-3\">\n                          <div *ngIf=\"hero\">\n                            <div class=\"hero-card\" style=\"width: 18rem;\">\n                              <img class=\"card-img-top image-size\" src=\"./../../assets/{{hero.icon | lowercase}}.png\" alt=\"Card image cap\">              \n                            </div>\n                          </div>\n                        </div>                      \n                    </div>\n                    <div class=\"row\">\n                      <div class=\"col-sm-12\">\n                          <p class=\"lead\">\n                            <a (click)=\"goBack()\" class=\"btn btn-primary btn-lg btn-style\" role=\"button\">Go back</a>\n                          </p>\n                      </div>\n                    </div>\n              </div>                                        \n            </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/hero-detail-general/hero-detail-general.component.ts":
+/*!**********************************************************************!*\
+  !*** ./src/app/hero-detail-general/hero-detail-general.component.ts ***!
+  \**********************************************************************/
+/*! exports provided: HeroDetailGeneralComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeroDetailGeneralComponent", function() { return HeroDetailGeneralComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var src_app_hero_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/hero.service */ "./src/app/hero.service.ts");
+/* harmony import */ var _communication_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../communication.service */ "./src/app/communication.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var HeroDetailGeneralComponent = /** @class */ (function () {
+    function HeroDetailGeneralComponent(route, heroService, communicationService) {
+        var _this = this;
+        this.route = route;
+        this.heroService = heroService;
+        this.communicationService = communicationService;
+        this.route.parent.params.subscribe(function (params) {
+            var id = parseInt(params.id);
+            _this.heroService.getHero(id)
+                .subscribe(function (hero) {
+                _this.hero = hero;
+            });
+        });
+    }
+    HeroDetailGeneralComponent.prototype.ngOnInit = function () {
+    };
+    HeroDetailGeneralComponent.prototype.goBack = function () {
+        this.communicationService.sendMessage('go back');
+    };
+    HeroDetailGeneralComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-hero-detail-general',
+            template: __webpack_require__(/*! ./hero-detail-general.component.html */ "./src/app/hero-detail-general/hero-detail-general.component.html"),
+            styles: [__webpack_require__(/*! ./hero-detail-general.component.css */ "./src/app/hero-detail-general/hero-detail-general.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            src_app_hero_service__WEBPACK_IMPORTED_MODULE_2__["HeroService"],
+            _communication_service__WEBPACK_IMPORTED_MODULE_3__["CommunicationService"]])
+    ], HeroDetailGeneralComponent);
+    return HeroDetailGeneralComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/hero-detail-stats/hero-detail-stats.component.css":
+/*!*******************************************************************!*\
+  !*** ./src/app/hero-detail-stats/hero-detail-stats.component.css ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/hero-detail-stats/hero-detail-stats.component.html":
+/*!********************************************************************!*\
+  !*** ./src/app/hero-detail-stats/hero-detail-stats.component.html ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  hero-detail-stats works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/hero-detail-stats/hero-detail-stats.component.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/hero-detail-stats/hero-detail-stats.component.ts ***!
+  \******************************************************************/
+/*! exports provided: HeroDetailStatsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeroDetailStatsComponent", function() { return HeroDetailStatsComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var HeroDetailStatsComponent = /** @class */ (function () {
+    function HeroDetailStatsComponent() {
+    }
+    HeroDetailStatsComponent.prototype.ngOnInit = function () {
+    };
+    HeroDetailStatsComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-hero-detail-stats',
+            template: __webpack_require__(/*! ./hero-detail-stats.component.html */ "./src/app/hero-detail-stats/hero-detail-stats.component.html"),
+            styles: [__webpack_require__(/*! ./hero-detail-stats.component.css */ "./src/app/hero-detail-stats/hero-detail-stats.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], HeroDetailStatsComponent);
+    return HeroDetailStatsComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/hero-detail/hero-detail.component.css":
 /*!*******************************************************!*\
   !*** ./src/app/hero-detail/hero-detail.component.css ***!
@@ -742,7 +906,7 @@ var DashboardComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "label {\r\n    display: inline-block;\r\n    width: 3em;\r\n    margin: .5em 0;\r\n    color: #607D8B;\r\n    font-weight: bold;\r\n  }\r\n  input {\r\n    height: 2em;\r\n    font-size: 1em;\r\n    padding-left: .4em;\r\n  }\r\n  button {\r\n    margin-top: 20px;\r\n    font-family: Arial;\r\n    background-color: #eee;\r\n    border: none;\r\n    padding: 5px 10px;\r\n    border-radius: 4px;\r\n    cursor: pointer; cursor: hand;\r\n  }\r\n  button:hover {\r\n    background-color: #cfd8dc;\r\n  }\r\n  button:disabled {\r\n    background-color: #eee;\r\n    color: #ccc;\r\n    cursor: auto;\r\n  }\r\n  .section {\r\n    width: 100%;\r\n    height: 100%;\r\n    border: 1px solid #ccc;\r\n}\r\n  .section-header {\r\n    height: 60px;\r\n    background-color: crimson;\r\n    color: #fff;\r\n    padding: 10px;\r\n    line-height: 40px;\r\n}\r\n  .section-body {\r\n    padding-top: 20px;\r\n    padding-left: 10px;\r\n}\r\n  .section-title {\r\n  padding-left: 25px;\r\n  font-size: 1.25rem;\r\n}\r\n  .details-container {\r\n  padding-left: 25px;\r\n}\r\n  .image-size {\r\n  display: block;\r\n  max-width: 330px;\r\n  max-height: 300px;\r\n  width: auto;\r\n  height: auto;\r\n  margin-top: 10px;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  margin-bottom: 10px;\r\n}\r\n  .property-title {\r\n  font-weight: bold;\r\n  padding-top: 10px;\r\n  padding-left: 18px;\r\n  padding-bottom: 10px;\r\n}\r\n  .property-value {\r\n  padding-top: 10px;\r\n  padding-bottom: 10px;\r\n}\r\n  .btn-style {\r\n  color: #fff !important;\r\n}\r\n  .rating-style {\r\n  color: gold;\r\n}\r\n  .title-container {\r\n  width: 400px;\r\n  height: 55px;\r\n  background-color: #000;\r\n  border-radius: 25px;\r\n  text-align: center;\r\n  display: table;\r\n  color: cornflowerblue;\r\n  margin-bottom: 15px;\r\n}\r\n  .title-style {\r\n  display: table-cell;\r\n  vertical-align: middle;\r\n}"
+module.exports = "label {\r\n    display: inline-block;\r\n    width: 3em;\r\n    margin: .5em 0;\r\n    color: #607D8B;\r\n    font-weight: bold;\r\n  }\r\n  input {\r\n    height: 2em;\r\n    font-size: 1em;\r\n    padding-left: .4em;\r\n  }\r\n  button {\r\n    margin-top: 20px;\r\n    font-family: Arial;\r\n    background-color: #eee;\r\n    border: none;\r\n    padding: 5px 10px;\r\n    border-radius: 4px;\r\n    cursor: pointer; cursor: hand;\r\n  }\r\n  button:hover {\r\n    background-color: #cfd8dc;\r\n  }\r\n  button:disabled {\r\n    background-color: #eee;\r\n    color: #ccc;\r\n    cursor: auto;\r\n  }\r\n  .section {\r\n    width: 100%;\r\n    height: 100%;\r\n    border: 1px solid #ccc;\r\n}\r\n  .section-header {\r\n    height: 60px;\r\n    background-color: crimson;\r\n    color: #fff;\r\n    padding: 10px;\r\n    line-height: 40px;\r\n}\r\n  .section-body {\r\n    padding-top: 20px;\r\n    padding-left: 10px;\r\n}\r\n  .section-title {\r\n  padding-left: 25px;\r\n  font-size: 1.25rem;\r\n}\r\n"
 
 /***/ }),
 
@@ -753,7 +917,7 @@ module.exports = "label {\r\n    display: inline-block;\r\n    width: 3em;\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"section\">\r\n  <div class=\"section-header\">\r\n    <div class=\"row\">\r\n      <div class=\"col-sm-12 section-title\">\r\n          {{title}}\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"section-body\">\r\n      <div class=\"row\">\r\n        <div class=\"col-sm-12 details-container\">\r\n          <div *ngIf=\"hero\">\r\n            <div class=\"row\">\r\n              <div class=\"col-sm-12\">\r\n                  <div class=\"jumbotron jumbotron-fluid\">\r\n                    <div class=\"container\">\r\n                        <div class=\"row\">\r\n                            <div class=\"col-sm-9\">\r\n                                <div class=\"title-container\">\r\n                                    <h2 class=\"title-style\">{{hero.name}}</h2>\r\n                                </div>                                \r\n                                <div class=\"row\">\r\n                                  <div class=\"col-sm-3 property-title\">\r\n                                    Id:\r\n                                  </div>\r\n                                  <div class=\"col-sm-9 property-value\">\r\n                                    {{ hero.id }}\r\n                                  </div>\r\n                                </div>\r\n                                <div class=\"row\">\r\n                                  <div class=\"col-sm-3 property-title\">\r\n                                    Name:\r\n                                  </div>\r\n                                  <div class=\"col-sm-9 property-value\">\r\n                                    {{ hero.name }}\r\n                                  </div>\r\n                                </div>                          \r\n                                <div class=\"row\">\r\n                                  <div class=\"col-sm-3 property-title\">\r\n                                    Description:\r\n                                  </div>\r\n                                  <div class=\"col-sm-9 property-value\">\r\n                                    {{ hero.description }}\r\n                                  </div>\r\n                                </div>\r\n                                <div class=\"row\">\r\n                                  <div class=\"col-sm-3 property-title\">\r\n                                    Sex:\r\n                                  </div>\r\n                                  <div class=\"col-sm-9 property-value\">\r\n                                    {{ hero.sex }}\r\n                                  </div>\r\n                                </div>                          \r\n                                <div class=\"row\">\r\n                                  <div class=\"col-sm-3 property-title\">\r\n                                    Rating:\r\n                                  </div>\r\n                                  <div class=\"col-sm-9 property-value\">\r\n                                      <span *ngFor=\"let num of hero.rating\">\r\n                                        <i class=\"fas fa-star rating-style\"></i>\r\n                                      </span>\r\n                                  </div>\r\n                                </div> \r\n                            </div>\r\n                            <div class=\"col-sm-3\">\r\n                                <div *ngIf=\"hero\">\r\n                                  <div class=\"hero-card\" style=\"width: 18rem;\">\r\n                                    <img class=\"card-img-top image-size\" src=\"./../../assets/{{hero.icon | lowercase}}.png\" alt=\"Card image cap\">              \r\n                                  </div>\r\n                                </div>\r\n                              </div>                      \r\n                          </div>\r\n                          <div class=\"row\">\r\n                            <div class=\"col-sm-12\">\r\n                                <p class=\"lead\">\r\n                                  <a (click)=\"goBack()\" class=\"btn btn-primary btn-lg btn-style\" role=\"button\">Go back</a>\r\n                                </p>\r\n                            </div>\r\n                          </div>\r\n                    </div>                                        \r\n                  </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      \r\n      <!-- <button (click)=\"save()\">Save</button> -->\r\n      <!-- <button (click)=\"goBack()\">Go back</button> -->\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"section\">\r\n  <div class=\"section-header\">\r\n    <div class=\"row\">\r\n      <div class=\"col-sm-12 section-title\">\r\n          {{title}}\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"section-body\">\r\n      <nav>\r\n        <div class=\"nav nav-tabs\" id=\"nav-tab\" role=\"tablist\">\r\n          <a class=\"nav-item nav-link active\" id=\"nav-home-tab\" data-toggle=\"tab\" href=\"#nav-home\" role=\"tab\" aria-controls=\"nav-home\" aria-selected=\"true\" (click)=\"showOverview()\">Overview</a>\r\n          <a class=\"nav-item nav-link\" id=\"nav-profile-tab\" data-toggle=\"tab\" href=\"#nav-profile\" role=\"tab\" aria-controls=\"nav-profile\" aria-selected=\"false\" (click)=\"showStatistics()\">Statistics</a>\r\n        </div>\r\n      </nav>\r\n      <router-outlet></router-outlet>\r\n      \r\n      <!-- <button (click)=\"save()\">Save</button> -->\r\n      <!-- <button (click)=\"goBack()\">Go back</button> -->\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -771,6 +935,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var src_app_hero_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/hero.service */ "./src/app/hero.service.ts");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _communication_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../communication.service */ "./src/app/communication.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -784,27 +949,37 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var HeroDetailComponent = /** @class */ (function () {
-    function HeroDetailComponent(router, route, heroService, location) {
+    function HeroDetailComponent(router, route, heroService, location, communicationService) {
+        var _this = this;
         this.router = router;
         this.route = route;
         this.heroService = heroService;
         this.location = location;
+        this.communicationService = communicationService;
         this.title = 'Hero Details';
+        // Subscribe to the hero detail general component message
+        this.subscription = this.communicationService.getMessage().subscribe(function (message) {
+            if (message.content === 'go back') {
+                _this.goBack();
+            }
+        });
     }
     HeroDetailComponent.prototype.ngOnInit = function () {
         this.getHero();
     };
     HeroDetailComponent.prototype.getHero = function () {
         var _this = this;
-        // const id = +this.route.snapshot.paramMap.get('id');
         this.route.paramMap.subscribe(function (params) {
             var id = parseInt(params.get('id'));
             var fromState = params.get('fromState');
             _this.heroId = id;
             _this.fromState = fromState;
             _this.heroService.getHero(id)
-                .subscribe(function (hero) { return _this.hero = hero; });
+                .subscribe(function (hero) {
+                _this.hero = hero;
+            });
         });
     };
     HeroDetailComponent.prototype.goBack = function () {
@@ -818,6 +993,12 @@ var HeroDetailComponent = /** @class */ (function () {
         this.heroService.updateHero(this.hero)
             .subscribe(function () { return _this.goBack(); });
     };
+    HeroDetailComponent.prototype.showOverview = function () {
+        this.router.navigate(['overview'], { relativeTo: this.route });
+    };
+    HeroDetailComponent.prototype.showStatistics = function () {
+        this.router.navigate(['statistics'], { relativeTo: this.route });
+    };
     HeroDetailComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-hero-detail',
@@ -827,7 +1008,8 @@ var HeroDetailComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
             src_app_hero_service__WEBPACK_IMPORTED_MODULE_2__["HeroService"],
-            _angular_common__WEBPACK_IMPORTED_MODULE_3__["Location"]])
+            _angular_common__WEBPACK_IMPORTED_MODULE_3__["Location"],
+            _communication_service__WEBPACK_IMPORTED_MODULE_4__["CommunicationService"]])
     ], HeroDetailComponent);
     return HeroDetailComponent;
 }());
