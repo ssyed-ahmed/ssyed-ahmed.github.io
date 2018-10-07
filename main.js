@@ -843,7 +843,7 @@ var HeroDetailGeneralComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".details-container {\r\n    padding-left: 25px;\r\n}\r\n.image-size {\r\n    display: block;\r\n    max-width: 330px;\r\n    max-height: 300px;\r\n    width: auto;\r\n    height: auto;\r\n    margin-top: 10px;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    margin-bottom: 10px;\r\n}\r\n.property-title {\r\n    font-weight: bold;\r\n    padding-top: 10px;\r\n    padding-left: 18px;\r\n    padding-bottom: 10px;\r\n}\r\n.property-value {\r\n    padding-top: 10px;\r\n    padding-bottom: 10px;\r\n}\r\n.btn-style {\r\n    color: #fff !important;\r\n}\r\n.rating-style {\r\n    color: gold;\r\n}\r\n.title-container {\r\n    width: 400px;\r\n    height: 55px;\r\n    background-color: #000;\r\n    border-radius: 25px;\r\n    text-align: center;\r\n    display: table;\r\n    color: cornflowerblue;\r\n    margin-bottom: 15px;\r\n}\r\n.title-style {\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n}"
 
 /***/ }),
 
@@ -854,7 +854,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  hero-detail-stats works!\n</p>\n"
+module.exports = "<div class=\"row\">\n    <div class=\"col-sm-12 details-container\">\n      <div *ngIf=\"hero\">\n        <div class=\"row\">\n          <div class=\"col-sm-12\">\n              <div class=\"jumbotron jumbotron-fluid\">\n                <div class=\"container\">\n                    <div class=\"row\">\n                        <div class=\"col-sm-9\">\n                            <div class=\"title-container\">\n                                <h2 class=\"title-style\">{{hero.name}}</h2>\n                            </div>                                \n                            <div class=\"row\">\n                              <div class=\"col-sm-3 property-title\">\n                                Height:\n                              </div>\n                              <div class=\"col-sm-9 property-value\">\n                                {{ hero.stats.personalStats.height }}\n                              </div>\n                            </div>\n                            <div class=\"row\">\n                              <div class=\"col-sm-3 property-title\">\n                                Weight:\n                              </div>\n                              <div class=\"col-sm-9 property-value\">\n                                  {{ hero.stats.personalStats.weight }}\n                              </div>\n                            </div>                          \n                            <div class=\"row\">\n                              <div class=\"col-sm-3 property-title\">\n                                Chest:\n                              </div>\n                              <div class=\"col-sm-9 property-value\">\n                                  {{ hero.stats.personalStats.chest }}\n                              </div>\n                            </div>\n                            <div class=\"row\">\n                              <div class=\"col-sm-3 property-title\">\n                                Arms:\n                              </div>\n                              <div class=\"col-sm-9 property-value\">\n                                  {{ hero.stats.personalStats.chest }}\n                              </div>\n                            </div>                          \n                            <div class=\"row\">\n                              <div class=\"col-sm-3 property-title\">\n                                Waist:\n                              </div>\n                              <div class=\"col-sm-9 property-value\">\n                                {{ hero.stats.personalStats.waist }}\n                              </div>\n                            </div>                            \n                            <div class=\"row\">\n                              <div class=\"col-sm-3 property-title\">\n                                Thighs:\n                              </div>\n                              <div class=\"col-sm-9 property-value\">\n                                {{ hero.stats.personalStats.thighs }}\n                              </div>\n                            </div>                             \n                        </div>\n                        <div class=\"col-sm-3\">\n                            <div *ngIf=\"hero\">\n                              <div class=\"hero-card\" style=\"width: 18rem;\">\n                                <img class=\"card-img-top image-size\" src=\"./../../assets/{{hero.icon | lowercase}}.png\" alt=\"Card image cap\">              \n                              </div>\n                            </div>\n                          </div>                      \n                      </div>\n                      <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <p class=\"lead\">\n                              <a (click)=\"goBack()\" class=\"btn btn-primary btn-lg btn-style\" role=\"button\">Go back</a>\n                            </p>\n                        </div>\n                      </div>\n                </div>                                        \n              </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>"
 
 /***/ }),
 
@@ -869,6 +869,9 @@ module.exports = "<p>\n  hero-detail-stats works!\n</p>\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeroDetailStatsComponent", function() { return HeroDetailStatsComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var src_app_hero_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/hero.service */ "./src/app/hero.service.ts");
+/* harmony import */ var _communication_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../communication.service */ "./src/app/communication.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -879,10 +882,27 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
 var HeroDetailStatsComponent = /** @class */ (function () {
-    function HeroDetailStatsComponent() {
+    function HeroDetailStatsComponent(route, heroService, communicationService) {
+        var _this = this;
+        this.route = route;
+        this.heroService = heroService;
+        this.communicationService = communicationService;
+        this.route.parent.params.subscribe(function (params) {
+            var id = parseInt(params.id);
+            _this.heroService.getHero(id)
+                .subscribe(function (hero) {
+                _this.hero = hero;
+            });
+        });
     }
     HeroDetailStatsComponent.prototype.ngOnInit = function () {
+    };
+    HeroDetailStatsComponent.prototype.goBack = function () {
+        this.communicationService.sendMessage('go back');
     };
     HeroDetailStatsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -890,7 +910,9 @@ var HeroDetailStatsComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./hero-detail-stats.component.html */ "./src/app/hero-detail-stats/hero-detail-stats.component.html"),
             styles: [__webpack_require__(/*! ./hero-detail-stats.component.css */ "./src/app/hero-detail-stats/hero-detail-stats.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            src_app_hero_service__WEBPACK_IMPORTED_MODULE_2__["HeroService"],
+            _communication_service__WEBPACK_IMPORTED_MODULE_3__["CommunicationService"]])
     ], HeroDetailStatsComponent);
     return HeroDetailStatsComponent;
 }());
@@ -1228,13 +1250,15 @@ var HeroService = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Hero", function() { return Hero; });
 var Hero = /** @class */ (function () {
-    function Hero(id, name, icon, description, sex, rating) {
+    function Hero(id, name, icon, description, sex, rating, stats) {
+        if (stats === void 0) { stats = {}; }
         this.id = id;
         this.name = name;
         this.icon = icon;
         this.description = description;
         this.sex = sex;
         this.rating = rating;
+        this.stats = stats;
     }
     return Hero;
 }());
@@ -1443,11 +1467,47 @@ var InMemoryDataService = /** @class */ (function () {
     InMemoryDataService.prototype.createDb = function () {
         var heroes = [
             new _hero__WEBPACK_IMPORTED_MODULE_1__["Hero"](11, 'Antman', 'antman', 'This is ant man.', 'Male', Array(3)),
-            new _hero__WEBPACK_IMPORTED_MODULE_1__["Hero"](12, 'Batman', 'batman', 'This is bat man.', 'Male', Array(4)),
-            new _hero__WEBPACK_IMPORTED_MODULE_1__["Hero"](13, 'Hulk', 'hulk', 'This is hulk.', 'Male', Array(5)),
+            new _hero__WEBPACK_IMPORTED_MODULE_1__["Hero"](12, 'Batman', 'batman', 'This is bat man.', 'Male', Array(4), {
+                "personalStats": {
+                    height: '6’2”',
+                    weight: '210 lbs',
+                    chest: '42 in',
+                    arms: '17 in',
+                    waist: '35 in',
+                    thighs: '27 in'
+                }
+            }),
+            new _hero__WEBPACK_IMPORTED_MODULE_1__["Hero"](13, 'Hulk', 'hulk', 'This is hulk.', 'Male', Array(5), {
+                "personalStats": {
+                    height: '7’0”',
+                    weight: '1040 lbs',
+                    chest: '102 in',
+                    arms: '68 in',
+                    waist: '85 in',
+                    thighs: '66 in'
+                }
+            }),
             new _hero__WEBPACK_IMPORTED_MODULE_1__["Hero"](14, 'Ironman', 'ironman', 'This is iron man.', 'Male', Array(4)),
-            new _hero__WEBPACK_IMPORTED_MODULE_1__["Hero"](15, 'Spiderman', 'spiderman', 'This is spider man.', 'Male', Array(5)),
-            new _hero__WEBPACK_IMPORTED_MODULE_1__["Hero"](16, 'Superman', 'superman', 'This is super man.', 'Male', Array(5)),
+            new _hero__WEBPACK_IMPORTED_MODULE_1__["Hero"](15, 'Spiderman', 'spiderman', 'This is spider man.', 'Male', Array(5), {
+                "personalStats": {
+                    height: '5’10”',
+                    weight: '167 lbs',
+                    chest: '34 in',
+                    arms: '13 in',
+                    waist: '28 in',
+                    thighs: '22 in'
+                }
+            }),
+            new _hero__WEBPACK_IMPORTED_MODULE_1__["Hero"](16, 'Superman', 'superman', 'This is super man.', 'Male', Array(5), {
+                "personalStats": {
+                    height: '6’3”',
+                    weight: '235 lbs',
+                    chest: '46 in',
+                    arms: '18 in',
+                    waist: '37 in',
+                    thighs: '27 in'
+                }
+            }),
             new _hero__WEBPACK_IMPORTED_MODULE_1__["Hero"](17, 'Wonderwoman', 'wonderwoman', 'This is wonder woman.', 'Female', Array(3)),
             new _hero__WEBPACK_IMPORTED_MODULE_1__["Hero"](18, 'Green lantern', 'greenlantern', 'This is green lantern.', 'Male', Array(3)),
             new _hero__WEBPACK_IMPORTED_MODULE_1__["Hero"](19, 'Mocking bird', 'mockingbird', 'This is mocking bird.', 'Female', Array(3)),
