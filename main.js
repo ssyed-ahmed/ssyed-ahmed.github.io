@@ -323,12 +323,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_statistics_statistics_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/statistics/statistics.component */ "./src/app/statistics/statistics.component.ts");
 /* harmony import */ var src_app_hero_detail_general_hero_detail_general_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/hero-detail-general/hero-detail-general.component */ "./src/app/hero-detail-general/hero-detail-general.component.ts");
 /* harmony import */ var src_app_hero_detail_stats_hero_detail_stats_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/hero-detail-stats/hero-detail-stats.component */ "./src/app/hero-detail-stats/hero-detail-stats.component.ts");
+/* harmony import */ var src_app_hero_detail_crimessolved_stats_hero_detail_crimessolved_stats_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/hero-detail-crimessolved-stats/hero-detail-crimessolved-stats.component */ "./src/app/hero-detail-crimessolved-stats/hero-detail-crimessolved-stats.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -355,6 +357,10 @@ var routes = [
             {
                 path: 'statistics',
                 component: src_app_hero_detail_stats_hero_detail_stats_component__WEBPACK_IMPORTED_MODULE_9__["HeroDetailStatsComponent"]
+            },
+            {
+                path: 'crimessolved',
+                component: src_app_hero_detail_crimessolved_stats_hero_detail_crimessolved_stats_component__WEBPACK_IMPORTED_MODULE_10__["HeroDetailCrimessolvedStatsComponent"]
             }
         ]
     },
@@ -389,7 +395,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "h1 {\r\n    font-size: 1.2em;\r\n    color: #999;\r\n    margin-bottom: 0;\r\n}\r\nh2 {\r\n    font-size: 2em;\r\n    margin-top: 0;\r\n    padding-top: 0;\r\n}\r\n.main-title {\r\n    color: aquamarine;\r\n    text-transform: uppercase;\r\n    font-size: 2.5rem;\r\n    font-weight: bold;\r\n    display: inline-block;\r\n    margin-left: 40px;\r\n    vertical-align: middle;\r\n}\r\n/* nav a {\r\n    padding: 5px 10px;\r\n    text-decoration: none;\r\n    margin-top: 10px;\r\n    display: inline-block;\r\n    background-color: #eee;\r\n    border-radius: 4px;\r\n}\r\nnav a:visited, a:link {\r\n    color: #607d8b;\r\n}\r\nnav a:hover {\r\n    color: #039be5;\r\n    background-color: #cfd8dc;\r\n}\r\nnav a:active {\r\n    color: #039be5;\r\n} */\r\n.nav-pills .nav-link {\r\n    border-radius: 0;\r\n}\r\n.no-padding {\r\n    padding-left: 0;\r\n    padding-right: 0;\r\n}\r\n.section {\r\n    width: 100%;\r\n    height: 100%;\r\n    border: 1px solid #ccc;\r\n}\r\n.section-header {\r\n    height: 60px;\r\n    background-color: crimson;\r\n    color: #fff;\r\n    padding: 10px;\r\n    line-height: 40px;\r\n}\r\n.section-body {\r\n    padding-top: 0;\r\n    padding-left: 0;\r\n}\r\n.section-title {\r\n    padding-left: 21px;\r\n    font-size: 1.25rem;\r\n}\r\n.refresh-style {\r\n    padding-top: 10px;\r\n    padding-right: 5px;\r\n    float: right;\r\n    cursor: pointer;\r\n}\r\n.refresh-style:hover {\r\n    color: cornflowerblue;\r\n}\r\n.no-right-padding {\r\n    padding-right: 0;\r\n}"
+module.exports = "h1 {\r\n    font-size: 1.2em;\r\n    color: #999;\r\n    margin-bottom: 0;\r\n}\r\nh2 {\r\n    font-size: 2em;\r\n    margin-top: 0;\r\n    padding-top: 0;\r\n}\r\n.main-title {\r\n    color: aquamarine;\r\n    text-transform: uppercase;\r\n    font-size: 2.5rem;\r\n    font-weight: bold;\r\n    display: inline-block;\r\n    margin-left: 40px;\r\n    vertical-align: middle;\r\n}\r\n.nav-pills .nav-link {\r\n    border-radius: 0;\r\n}\r\n.no-padding {\r\n    padding-left: 0;\r\n    padding-right: 0;\r\n}\r\n.section {\r\n    width: 100%;\r\n    height: 100%;\r\n    border: 1px solid #ccc;\r\n}\r\n.section-header {\r\n    height: 60px;\r\n    background-color: crimson;\r\n    color: #fff;\r\n    padding: 10px;\r\n    line-height: 40px;\r\n}\r\n.section-body {\r\n    padding-top: 0;\r\n    padding-left: 0;\r\n}\r\n.section-title {\r\n    padding-left: 21px;\r\n    font-size: 1.25rem;\r\n}\r\n.refresh-style {\r\n    padding-top: 10px;\r\n    padding-right: 5px;\r\n    float: right;\r\n    cursor: pointer;\r\n}\r\n.refresh-style:hover {\r\n    color: cornflowerblue;\r\n}\r\n.no-right-padding {\r\n    padding-right: 0;\r\n}\r\n@media (max-width: 320px) {\r\n    .main-title {\r\n        font-size: 1.5rem;\r\n    }\r\n    .no-right-padding {\r\n        padding-left: 0;\r\n    }\r\n}"
 
 /***/ }),
 
@@ -483,12 +489,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./page-not-found/page-not-found.component */ "./src/app/page-not-found/page-not-found.component.ts");
 /* harmony import */ var _hero_search_hero_search_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./hero-search/hero-search.component */ "./src/app/hero-search/hero-search.component.ts");
 /* harmony import */ var _statistics_statistics_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./statistics/statistics.component */ "./src/app/statistics/statistics.component.ts");
+/* harmony import */ var _hero_detail_crimessolved_stats_hero_detail_crimessolved_stats_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./hero-detail-crimessolved-stats/hero-detail-crimessolved-stats.component */ "./src/app/hero-detail-crimessolved-stats/hero-detail-crimessolved-stats.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -525,7 +533,8 @@ var AppModule = /** @class */ (function () {
                 _section_section_component__WEBPACK_IMPORTED_MODULE_15__["SectionComponent"],
                 _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_16__["PageNotFoundComponent"],
                 _hero_search_hero_search_component__WEBPACK_IMPORTED_MODULE_17__["HeroSearchComponent"],
-                _statistics_statistics_component__WEBPACK_IMPORTED_MODULE_18__["StatisticsComponent"]
+                _statistics_statistics_component__WEBPACK_IMPORTED_MODULE_18__["StatisticsComponent"],
+                _hero_detail_crimessolved_stats_hero_detail_crimessolved_stats_component__WEBPACK_IMPORTED_MODULE_19__["HeroDetailCrimessolvedStatsComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -751,6 +760,163 @@ var DashboardComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/hero-detail-crimessolved-stats/hero-detail-crimessolved-stats.component.css":
+/*!*********************************************************************************************!*\
+  !*** ./src/app/hero-detail-crimessolved-stats/hero-detail-crimessolved-stats.component.css ***!
+  \*********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".details-container {\r\n    padding-left: 25px;\r\n}\r\n.chart-style {\r\n    width: 100%;\r\n    height: 50%;\r\n    position: relative;\r\n}\r\n.spacer {\r\n    padding-top: 40px;\r\n}\r\n.btn-style {\r\n    color: #fff !important;\r\n}\r\n.image-size {\r\n    display: block;\r\n    max-width: 330px;\r\n    max-height: 300px;\r\n    width: auto;\r\n    height: auto;\r\n    margin-top: 10px;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    margin-bottom: 10px;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/hero-detail-crimessolved-stats/hero-detail-crimessolved-stats.component.html":
+/*!**********************************************************************************************!*\
+  !*** ./src/app/hero-detail-crimessolved-stats/hero-detail-crimessolved-stats.component.html ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\">\n  <div class=\"col-sm-12 details-container\">\n    <div class=\"row\">\n      <div class=\"col-sm-9\">\n        <div class=\"chart-style\">\n          <div [hidden]=\"!lineChart\">\n            <canvas id=\"lineCanvas\">\n              {{ lineChart }}\n            </canvas>\n          </div>        \n        </div>\n      </div>\n      <div class=\"col-sm-3\">\n        <div *ngIf=\"hero\">\n          <div class=\"hero-card\" style=\"width: 18rem;\">\n            <img class=\"card-img-top image-size\" src=\"./../../assets/{{hero.icon | lowercase}}.png\" alt=\"Card image cap\">              \n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-sm-6\">\n        <div class=\"chart-style\">\n          <div [hidden]=\"!pieChart\">\n            <canvas id=\"pieCanvas\">\n              {{ pieChart }}\n            </canvas>\n          </div>        \n        </div>        \n      </div>\n    </div>\n    <div class=\"row spacer\">\n      <div class=\"col-sm-12\">\n          <p class=\"lead\">\n            <a (click)=\"goBack()\" class=\"btn btn-primary btn-lg btn-style\" role=\"button\">Go back</a>\n          </p>\n      </div>\n    </div>\n  </div>\n</div>\n  \n\n"
+
+/***/ }),
+
+/***/ "./src/app/hero-detail-crimessolved-stats/hero-detail-crimessolved-stats.component.ts":
+/*!********************************************************************************************!*\
+  !*** ./src/app/hero-detail-crimessolved-stats/hero-detail-crimessolved-stats.component.ts ***!
+  \********************************************************************************************/
+/*! exports provided: HeroDetailCrimessolvedStatsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeroDetailCrimessolvedStatsComponent", function() { return HeroDetailCrimessolvedStatsComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var src_app_hero_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/hero.service */ "./src/app/hero.service.ts");
+/* harmony import */ var _communication_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../communication.service */ "./src/app/communication.service.ts");
+/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/src/chart.js");
+/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_4__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var HeroDetailCrimessolvedStatsComponent = /** @class */ (function () {
+    function HeroDetailCrimessolvedStatsComponent(route, heroService, communicationService) {
+        var _this = this;
+        this.route = route;
+        this.heroService = heroService;
+        this.communicationService = communicationService;
+        this.months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        this.chartData = [];
+        this.lineChart = [];
+        this.pieChart = [];
+        this.pieLabels = ['Red', 'Blue', 'Green', 'Yellow', 'Orange', 'Purple', 'Black', 'Cyan', 'Pink', 'gold', 'crimson'];
+        this.route.parent.params.subscribe(function (params) {
+            var id = parseInt(params.id);
+            _this.heroService.getHero(id)
+                .subscribe(function (hero) {
+                _this.hero = hero;
+                _this.drawLineChart();
+                _this.drawPieChart();
+            });
+        });
+    }
+    HeroDetailCrimessolvedStatsComponent.prototype.ngAfterViewInit = function () {
+        // this.drawLineChart();
+        // console.log(this.hero);
+    };
+    HeroDetailCrimessolvedStatsComponent.prototype.goBack = function () {
+        this.communicationService.sendMessage('go back');
+    };
+    HeroDetailCrimessolvedStatsComponent.prototype.drawLineChart = function () {
+        this.chartData = this.hero.stats.crimesSolvedStats.lineData;
+        console.log(this.chartData);
+        this.lineChart = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('lineCanvas', {
+            type: 'line',
+            data: {
+                labels: this.months,
+                datasets: [
+                    {
+                        data: this.chartData,
+                        borderColor: '#3cba9f',
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Crimes solved'
+                },
+                legend: {
+                    display: false
+                },
+                scales: {
+                    xAxes: [
+                        {
+                            display: true
+                        }
+                    ],
+                    yAxes: [
+                        {
+                            display: true
+                        }
+                    ]
+                }
+            }
+        });
+    };
+    HeroDetailCrimessolvedStatsComponent.prototype.drawPieChart = function () {
+        this.pieChart = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"]('pieCanvas', {
+            type: 'doughnut',
+            data: {
+                datasets: [
+                    {
+                        data: this.chartData
+                    }
+                ],
+                labels: this.pieLabels
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Crimes solved'
+                },
+                legend: {
+                    display: false
+                }
+            }
+        });
+    };
+    HeroDetailCrimessolvedStatsComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-hero-detail-crimessolved-stats',
+            template: __webpack_require__(/*! ./hero-detail-crimessolved-stats.component.html */ "./src/app/hero-detail-crimessolved-stats/hero-detail-crimessolved-stats.component.html"),
+            styles: [__webpack_require__(/*! ./hero-detail-crimessolved-stats.component.css */ "./src/app/hero-detail-crimessolved-stats/hero-detail-crimessolved-stats.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            src_app_hero_service__WEBPACK_IMPORTED_MODULE_2__["HeroService"],
+            _communication_service__WEBPACK_IMPORTED_MODULE_3__["CommunicationService"]])
+    ], HeroDetailCrimessolvedStatsComponent);
+    return HeroDetailCrimessolvedStatsComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/hero-detail-general/hero-detail-general.component.css":
 /*!***********************************************************************!*\
   !*** ./src/app/hero-detail-general/hero-detail-general.component.css ***!
@@ -939,7 +1105,7 @@ module.exports = "label {\r\n    display: inline-block;\r\n    width: 3em;\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"section\">\r\n  <div class=\"section-header\">\r\n    <div class=\"row\">\r\n      <div class=\"col-sm-12 section-title\">\r\n          {{title}}\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"section-body\">\r\n      <nav>\r\n        <div class=\"nav nav-tabs\" id=\"nav-tab\" role=\"tablist\">\r\n          <a class=\"nav-item nav-link active\" id=\"nav-home-tab\" data-toggle=\"tab\" href=\"#nav-home\" role=\"tab\" aria-controls=\"nav-home\" aria-selected=\"true\" (click)=\"showOverview()\">Overview</a>\r\n          <a class=\"nav-item nav-link\" id=\"nav-profile-tab\" data-toggle=\"tab\" href=\"#nav-profile\" role=\"tab\" aria-controls=\"nav-profile\" aria-selected=\"false\" (click)=\"showStatistics()\">Statistics</a>\r\n        </div>\r\n      </nav>\r\n      <router-outlet></router-outlet>\r\n      \r\n      <!-- <button (click)=\"save()\">Save</button> -->\r\n      <!-- <button (click)=\"goBack()\">Go back</button> -->\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"section\">\r\n  <div class=\"section-header\">\r\n    <div class=\"row\">\r\n      <div class=\"col-sm-12 section-title\">\r\n          {{title}}\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"section-body\">\r\n      <nav>\r\n        <div class=\"nav nav-tabs\" id=\"nav-tab\" role=\"tablist\">\r\n          <a class=\"nav-item nav-link active\" id=\"nav-home-tab\" data-toggle=\"tab\" href=\"#nav-home\" role=\"tab\" aria-controls=\"nav-home\" aria-selected=\"true\" (click)=\"showOverview()\">Overview</a>\r\n          <a class=\"nav-item nav-link\" id=\"nav-profile-tab\" data-toggle=\"tab\" href=\"#nav-profile\" role=\"tab\" aria-controls=\"nav-profile\" aria-selected=\"false\" (click)=\"showStatistics()\">Statistics</a>\r\n          <a class=\"nav-item nav-link\" id=\"nav-profile-tab\" data-toggle=\"tab\" href=\"#nav-profile\" role=\"tab\" aria-controls=\"nav-profile\" aria-selected=\"false\" (click)=\"showCrimesSolved()\">Crimes solved</a>\r\n        </div>\r\n      </nav>\r\n      <router-outlet></router-outlet>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -1021,6 +1187,9 @@ var HeroDetailComponent = /** @class */ (function () {
     HeroDetailComponent.prototype.showStatistics = function () {
         this.router.navigate(['statistics'], { relativeTo: this.route });
     };
+    HeroDetailComponent.prototype.showCrimesSolved = function () {
+        this.router.navigate(['crimessolved'], { relativeTo: this.route });
+    };
     HeroDetailComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-hero-detail',
@@ -1047,7 +1216,7 @@ var HeroDetailComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".search-result li {\r\n    border-bottom: 1px solid gray;\r\n    border-left: 1px solid gray;\r\n    border-right: 1px solid gray;\r\n    width: 195px;\r\n    height: 16px;\r\n    padding: 16px;\r\n    background-color: white;\r\n    cursor: pointer;\r\n    list-style-type: none;\r\n}\r\n\r\n.search-result li:hover {\r\n    background-color: gold;\r\n}\r\n\r\n.search-result li a {\r\n    color: #888;\r\n    display: block;\r\n    text-decoration: none;\r\n    padding-top: 10px;\r\n}\r\n\r\n.search-result li a:hover {\r\n    color: cornflowerblue;\r\n}\r\n\r\n.search-result li a:active {\r\n    color: cornflowerblue;\r\n}\r\n\r\n/* #search-box {\r\n    width: 200px;\r\n    height: 20px;\r\n} */\r\n\r\nul.search-result {\r\n    margin-top: 0;\r\n    padding-left: 0;\r\n}"
 
 /***/ }),
 
@@ -1058,7 +1227,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"input-group mb-3\">\n  <input #searchBox id=\"search-box\" (keyup)=\"search(searchBox.value)\" class=\"form-control\" placeholder=\"Search text\" aria-label=\"Search text\">\n  <ul class=\"search-result\">\n    <li *ngFor=\"let hero of heroes$ | async\">\n      <a routerLink=\"/heroes/{{hero.id}}\">\n        {{hero.name}}\n      </a>\n    </li>\n  </ul>\n</div>"
+module.exports = "<!-- <div class=\"input-group mb-3\">\n  <input #searchBox id=\"search-box\" (keyup)=\"search(searchBox.value)\" class=\"form-control\" placeholder=\"Search text\" aria-label=\"Search text\">\n  <ul class=\"search-result\">\n    <li *ngFor=\"let hero of heroes$ | async\">\n      <a routerLink=\"/heroes/{{hero.id}}\">\n        {{hero.name}}\n      </a>\n    </li>\n  </ul>\n</div> -->\n\n\n<div class=\"input-group mb-3\">\n  <div class=\"row\">\n    <div class=\"col-sm-12\">\n      <input #searchBox id=\"search-box\" (keyup)=\"search(searchBox.value)\" class=\"form-control\" placeholder=\"Search text\" aria-label=\"Search text\">\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-sm-12\">\n      <ul class=\"search-result\">\n        <li *ngFor=\"let hero of heroes$ | async\">\n          <a routerLink=\"/heroes/{{hero.id}}/heroes\">\n            {{hero.name}}\n          </a>\n        </li>\n      </ul>\n    </div>\n  </div>    \n</div>"
 
 /***/ }),
 
@@ -1106,7 +1275,7 @@ var HeroSearchComponent = /** @class */ (function () {
         // ignore new term if same as previous term
         Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["distinctUntilChanged"])(), 
         // switch to new search observable each time the term changes
-        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["switchMap"])(function (term) { return _this.heroService.searchHero(term); }));
+        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["switchMap"])(function (term) { return _this.heroService.searchHeroes(term); }));
     };
     HeroSearchComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1214,7 +1383,7 @@ var HeroService = /** @class */ (function () {
         return this.http.delete(url, httpOptions)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["tap"])(function (_) { return _this.log("deleted hero with id = " + id); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(this.handleError("deleteHero")));
     };
-    HeroService.prototype.searchHero = function (term) {
+    HeroService.prototype.searchHeroes = function (term) {
         var _this = this;
         if (!term.trim()) {
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])([]);
@@ -1274,7 +1443,7 @@ var Hero = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".heroes {\r\n    margin: 0 0 2em 0;\r\n    list-style-type: none;\r\n    padding: 0;\r\n    width: 15em;\r\n  }\r\n  .heroes li {\r\n    position: relative;\r\n    cursor: pointer;\r\n    background-color: #EEE;\r\n    margin: .5em;\r\n    padding: .3em 0;\r\n    height: 1.6em;\r\n    border-radius: 4px;\r\n  }\r\n  .heroes li:hover {\r\n    color: #607D8B;\r\n    background-color: #DDD;\r\n    left: .1em;\r\n  }\r\n  .heroes a {\r\n    color: #888;\r\n    text-decoration: none;\r\n    position: relative;\r\n    display: block;\r\n    width: 250px;\r\n  }\r\n  .heroes a:hover {\r\n    color:#607D8B;\r\n  }\r\n  .heroes .badge {\r\n    display: inline-block;\r\n    font-size: small;\r\n    color: white;\r\n    padding: 0.8em 0.7em 0 0.7em;\r\n    background-color: #607D8B;\r\n    line-height: 1em;\r\n    position: relative;\r\n    left: -1px;\r\n    top: -4px;\r\n    height: 1.8em;\r\n    min-width: 16px;\r\n    text-align: right;\r\n    margin-right: .8em;\r\n    border-radius: 4px 0 0 4px;\r\n}\r\n  .section {\r\n    width: 100%;\r\n    height: 100%;\r\n    border: 1px solid #ccc;\r\n}\r\n  .section-header {\r\n    height: 60px;\r\n    background-color: crimson;\r\n    color: #fff;\r\n    padding: 10px;\r\n    line-height: 40px;\r\n}\r\n  .section-body {\r\n    padding-top: 20px;\r\n    padding-left: 10px;\r\n}\r\n  .btn-grp-padding {\r\n  padding-left: 100px;\r\n}\r\n  .section-title {\r\n  padding-left: 25px;\r\n  font-size: 1.25rem;\r\n}\r\n  .hero-detail-link, .action-link {\r\n  cursor: pointer;\r\n}\r\n  .hero-detail-link:hover, .action-link:hover {\r\n  cursor: pointer;\r\n  color: cornflowerblue;\r\n}\r\n  .hero-modal-header {\r\n  background-color: crimson;\r\n  color: #fff;\r\n}\r\n  .close-style {\r\n  color: #fff;\r\n}\r\n  .selected-hero {\r\n  border: 2px solid gold;\r\n}\r\n  .label-text {\r\n  font-weight: bold;\r\n}\r\n  .rating-style {\r\n  color: gold;\r\n}"
+module.exports = ".heroes {\r\n    margin: 0 0 2em 0;\r\n    list-style-type: none;\r\n    padding: 0;\r\n    width: 15em;\r\n  }\r\n  .heroes li {\r\n    position: relative;\r\n    cursor: pointer;\r\n    background-color: #EEE;\r\n    margin: .5em;\r\n    padding: .3em 0;\r\n    height: 1.6em;\r\n    border-radius: 4px;\r\n  }\r\n  .heroes li:hover {\r\n    color: #607D8B;\r\n    background-color: #DDD;\r\n    left: .1em;\r\n  }\r\n  .heroes a {\r\n    color: #888;\r\n    text-decoration: none;\r\n    position: relative;\r\n    display: block;\r\n    width: 250px;\r\n  }\r\n  .heroes a:hover {\r\n    color:#607D8B;\r\n  }\r\n  .heroes .badge {\r\n    display: inline-block;\r\n    font-size: small;\r\n    color: white;\r\n    padding: 0.8em 0.7em 0 0.7em;\r\n    background-color: #607D8B;\r\n    line-height: 1em;\r\n    position: relative;\r\n    left: -1px;\r\n    top: -4px;\r\n    height: 1.8em;\r\n    min-width: 16px;\r\n    text-align: right;\r\n    margin-right: .8em;\r\n    border-radius: 4px 0 0 4px;\r\n}\r\n  .section {\r\n    width: 100%;\r\n    height: 100%;\r\n    border: 1px solid #ccc;\r\n}\r\n  .section-header {\r\n    height: 60px;\r\n    background-color: crimson;\r\n    color: #fff;\r\n    padding: 10px;\r\n    line-height: 40px;\r\n}\r\n  .section-body {\r\n    padding-top: 20px;\r\n    padding-left: 10px;\r\n}\r\n  .btn-grp-padding {\r\n  padding-left: 100px;\r\n}\r\n  .section-title {\r\n  padding-left: 25px;\r\n  font-size: 1.25rem;\r\n}\r\n  .hero-detail-link, .action-link {\r\n  cursor: pointer;\r\n}\r\n  .hero-detail-link:hover, .action-link:hover {\r\n  cursor: pointer;\r\n  color: cornflowerblue;\r\n}\r\n  .hero-modal-header {\r\n  background-color: crimson;\r\n  color: #fff;\r\n}\r\n  .close-style {\r\n  color: #fff;\r\n}\r\n  .selected-hero {\r\n  border: 2px solid gold;\r\n}\r\n  .label-text {\r\n  font-weight: bold;\r\n}\r\n  .rating-style {\r\n  color: gold;\r\n}\r\n  @media (max-width: 320px) {\r\n  .section-title {\r\n    \r\n  }\r\n}"
 
 /***/ }),
 
@@ -1464,6 +1633,17 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var InMemoryDataService = /** @class */ (function () {
     function InMemoryDataService() {
     }
+    InMemoryDataService.prototype.generateRandomInteger = function (min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    };
+    InMemoryDataService.prototype.generateRandomDataArray = function () {
+        var data = [];
+        for (var i = 0; i < 12; i++) {
+            var num = this.generateRandomInteger(1, 25);
+            data.push(num);
+        }
+        return data;
+    };
     InMemoryDataService.prototype.createDb = function () {
         var heroes = [
             new _hero__WEBPACK_IMPORTED_MODULE_1__["Hero"](11, 'Antman', 'antman', 'This is ant man.', 'Male', Array(3), {
@@ -1474,6 +1654,9 @@ var InMemoryDataService = /** @class */ (function () {
                     arms: '0.17 in',
                     waist: '0.35 in',
                     thighs: '0.27 in'
+                },
+                "crimesSolvedStats": {
+                    lineData: this.generateRandomDataArray()
                 }
             }),
             new _hero__WEBPACK_IMPORTED_MODULE_1__["Hero"](12, 'Batman', 'batman', 'This is bat man.', 'Male', Array(4), {
@@ -1484,6 +1667,9 @@ var InMemoryDataService = /** @class */ (function () {
                     arms: '17 in',
                     waist: '35 in',
                     thighs: '27 in'
+                },
+                "crimesSolvedStats": {
+                    lineData: this.generateRandomDataArray()
                 }
             }),
             new _hero__WEBPACK_IMPORTED_MODULE_1__["Hero"](13, 'Hulk', 'hulk', 'This is hulk.', 'Male', Array(5), {
@@ -1494,6 +1680,9 @@ var InMemoryDataService = /** @class */ (function () {
                     arms: '68 in',
                     waist: '85 in',
                     thighs: '66 in'
+                },
+                "crimesSolvedStats": {
+                    lineData: this.generateRandomDataArray()
                 }
             }),
             new _hero__WEBPACK_IMPORTED_MODULE_1__["Hero"](14, 'Ironman', 'ironman', 'This is iron man.', 'Male', Array(4), {
@@ -1504,6 +1693,9 @@ var InMemoryDataService = /** @class */ (function () {
                     arms: '13 in',
                     waist: '32 in',
                     thighs: '22 in'
+                },
+                "crimesSolvedStats": {
+                    lineData: this.generateRandomDataArray()
                 }
             }),
             new _hero__WEBPACK_IMPORTED_MODULE_1__["Hero"](15, 'Spiderman', 'spiderman', 'This is spider man.', 'Male', Array(5), {
@@ -1514,6 +1706,9 @@ var InMemoryDataService = /** @class */ (function () {
                     arms: '13 in',
                     waist: '28 in',
                     thighs: '22 in'
+                },
+                "crimesSolvedStats": {
+                    lineData: this.generateRandomDataArray()
                 }
             }),
             new _hero__WEBPACK_IMPORTED_MODULE_1__["Hero"](16, 'Superman', 'superman', 'This is super man.', 'Male', Array(5), {
@@ -1524,6 +1719,9 @@ var InMemoryDataService = /** @class */ (function () {
                     arms: '18 in',
                     waist: '37 in',
                     thighs: '27 in'
+                },
+                "crimesSolvedStats": {
+                    lineData: this.generateRandomDataArray()
                 }
             }),
             new _hero__WEBPACK_IMPORTED_MODULE_1__["Hero"](17, 'Wonderwoman', 'wonderwoman', 'This is wonder woman.', 'Female', Array(3), {
@@ -1534,6 +1732,9 @@ var InMemoryDataService = /** @class */ (function () {
                     arms: '11 in',
                     waist: '29 in',
                     thighs: '19 in'
+                },
+                "crimesSolvedStats": {
+                    lineData: this.generateRandomDataArray()
                 }
             }),
             new _hero__WEBPACK_IMPORTED_MODULE_1__["Hero"](18, 'Green lantern', 'greenlantern', 'This is green lantern.', 'Male', Array(3), {
@@ -1544,6 +1745,9 @@ var InMemoryDataService = /** @class */ (function () {
                     arms: '15 in',
                     waist: '30 in',
                     thighs: '24 in'
+                },
+                "crimesSolvedStats": {
+                    lineData: this.generateRandomDataArray()
                 }
             }),
             new _hero__WEBPACK_IMPORTED_MODULE_1__["Hero"](19, 'Mocking bird', 'mockingbird', 'This is mocking bird.', 'Female', Array(3), {
@@ -1554,6 +1758,9 @@ var InMemoryDataService = /** @class */ (function () {
                     arms: '10 in',
                     waist: '27 in',
                     thighs: '18 in'
+                },
+                "crimesSolvedStats": {
+                    lineData: this.generateRandomDataArray()
                 }
             }),
             new _hero__WEBPACK_IMPORTED_MODULE_1__["Hero"](20, 'Black widow', 'blackwidow', 'This is black widow.', 'Female', Array(4), {
@@ -1564,6 +1771,9 @@ var InMemoryDataService = /** @class */ (function () {
                     arms: '10 in',
                     waist: '26 in',
                     thighs: '18 in'
+                },
+                "crimesSolvedStats": {
+                    lineData: this.generateRandomDataArray()
                 }
             }),
             new _hero__WEBPACK_IMPORTED_MODULE_1__["Hero"](21, 'New hero', 'default', 'This is default hero.', 'Male', Array(2), {
@@ -1574,6 +1784,9 @@ var InMemoryDataService = /** @class */ (function () {
                     arms: '16 in',
                     waist: '32 in',
                     thighs: '22 in'
+                },
+                "crimesSolvedStats": {
+                    lineData: this.generateRandomDataArray()
                 }
             })
         ];
